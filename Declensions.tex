@@ -1,0 +1,165 @@
+\documentclass[fleqn,12pt,a4paper]{article}
+
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage{xunicode}
+  \defaultfontfeatures{Mapping=tex-text} % To support LaTeX quoting style
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+
+\usepackage{tikz}
+\usepackage{tabularx}
+
+
+\title{Shapes of the Latin Declensions}
+\author{Nathan Glenn}
+\date{February, 2014}
+\begin{document}
+% \maketitle
+\pagenumbering{gobble}
+\pagestyle{myheadings}
+\markright{Nathan Glenn \hfill Shapes of the Latin Declensions \hfill February, 2014}
+
+% Introduce a new counter for counting the nodes needed for circling
+\newcounter{nodecount}
+% Command for making a new node and naming it according to the nodecount counter
+\newcommand\tabnode[1]{\addtocounter{nodecount}{1} \tikz \node (\arabic{nodecount}) {#1};}
+
+% Some options common to all the nodes and paths
+\tikzstyle{every picture}+=[remember picture,baseline]
+\tikzstyle{every node}+=[inner sep=0pt,anchor=base,
+minimum width=1.8cm,align=center,text depth=.25ex,outer sep=1.5pt]
+\tikzstyle{every path}+=[thick, rounded corners]
+
+\begin{table}
+  \begin{minipage}[b]{1 \linewidth}\centering
+1st Declension\vspace{1em}
+  
+        \begin{tabular}{lll}
+        ~  & Singular  & Plural    \\
+        Nom.  & acc.  & \tabnode{ae}   \\ %1
+        Acc.  & am & ās   \\
+        Gen.  & \tabnode{ae} & ārum \\ %2
+        Dat.  & \tabnode{ae} & \tabnode{īs}   \\ %3, 4
+        Abl. & ā  & \tabnode{īs}   \\ %5
+        \end{tabular}
+    \end{minipage}
+    
+    
+    \begin{tikzpicture}[overlay]
+    % Define the circle paths
+    \draw [red](1.north west) -- (1.north east) --
+    (1.south east) -- (1.south west) -- (2.north east) -- 
+    (3.south east) -- (3.south west) -- (2.north west) --
+    (2.north east) -- (1.south west) -- cycle;
+    \draw [red](4.north west) -- (4.north east) -- (5.south east) --
+    (5.south east) -- (5.south west) -- cycle;
+    \end{tikzpicture}
+\end{table}
+
+\begin{table}
+  \begin{minipage}[b]{1 \linewidth}\centering
+2nd Declension\vspace{1em}
+
+        \begin{tabular}{lll}
+        ~  & Singular  & Plural    \\
+        Nom.  & us  & \tabnode{ī}   \\ %6
+        Acc.  & um & ōs   \\
+        Gen.  & \tabnode{ī} & ōrum \\ %7
+        Dat.  & \tabnode{ō} & \tabnode{īs}   \\ %8, 9
+        Abl. & \tabnode{ō}  & \tabnode{īs}   \\ %10, 11
+        \end{tabular}
+    \end{minipage}
+    
+    
+    \begin{tikzpicture}[overlay]
+    % Define the circle paths
+    \draw [blue] (6.north west) -- (6.north east) -- (6.south east) -- (6.south west) -- (7.north east) -- 
+    (7.south east) -- (7.south west) -- (7.north west) -- (7.north east) -- (6.south west) -- cycle;
+    \draw [blue](9.north west) -- (9.north east) -- (9.south east) --
+    (11.south east) -- (11.south west) -- cycle;
+    \draw [blue](8.north west) -- (8.north east) -- (8.south east) --
+    (10.south east) -- (10.south west) -- cycle;
+    \end{tikzpicture}
+\end{table}
+
+\begin{table}
+  \begin{minipage}[b]{1 \linewidth}\centering
+3rd Declension\vspace{1em}
+
+        \begin{tabular}{lll}
+        ~  & Singular  & Plural    \\
+        Nom.  & --- & \tabnode{ēs}   \\ %12
+        Acc.  & em & \tabnode{ēs}   \\ %13
+        Gen.  & is & um \\ %7
+        Dat.  & \tabnode{ī} & \tabnode{ibus}   \\ %14, 15
+        Abl. & \tabnode{e}  & \tabnode{ibus}   \\ %16, 17
+        \end{tabular}
+    \end{minipage}
+    
+    
+    \begin{tikzpicture}[overlay]
+    % Define the circle paths
+    \draw [green](12.north west) -- (12.north east) -- (12.south east) --
+    (13.south east) -- (13.south west) -- cycle;
+    \draw [green](14.north west) -- (14.north east) -- (14.south east) --
+    (16.south east) -- (16.south west) -- cycle;
+    \draw [green](15.north west) -- (15.north east) -- (15.south east) --
+    (17.south east) -- (17.south west) -- cycle;
+    \end{tikzpicture}
+\end{table}
+
+\begin{table}
+  \begin{minipage}[b]{1 \linewidth}\centering
+4th Declension\vspace{1em}
+
+        \begin{tabular}{lll}
+        ~  & Singular  & Plural    \\
+        Nom.  & us & \tabnode{ūs}   \\ %18
+        Acc.  & um & \tabnode{ūs}   \\ %19
+        Gen.  & \tabnode{ūs} & uum \\ %20
+        Dat.  & ūī & \tabnode{ibus}   \\ %21
+        Abl. & ū  & \tabnode{ibus}   \\ %22
+        \end{tabular}
+    \end{minipage}
+    
+    
+    \begin{tikzpicture}[overlay]
+    % Define the circle paths
+    \draw [yellow](18.north west) -- (18.north east) --
+    (19.south east) -- (19.south west) -- (20.south east) -- (20.south west) --
+    (20.north west) -- (20.north east) -- (19.south west) -- cycle;
+    \draw [yellow](21.north west) -- (21.north east) -- (21.south east) --
+    (22.south east) -- (22.south west) -- cycle;
+    \end{tikzpicture}
+\end{table}
+
+\begin{table}
+  \begin{minipage}[b]{1 \linewidth}\centering
+5th Declension\vspace{1em}
+
+        \begin{tabular}{lll}
+        ~  & Singular  & Plural    \\
+        Nom.  & \tabnode{ēs} & \tabnode{ēs}   \\ %23, 24
+        Acc.  & em & \tabnode{ēs}   \\ %25
+        Gen.  & \tabnode{ēī} & ērum \\ %26
+        Dat.  & \tabnode{ēī} & \tabnode{ēbus}   \\ %27, 28
+        Abl. & ē  & \tabnode{ēbus}   \\ %29
+        \end{tabular}
+    \end{minipage}
+    
+    \begin{tikzpicture}[overlay]
+    % Define the circle paths
+    \draw [purple](23.north west)-- (24.north east) -- (25.south east) --
+    (25.south west) -- (24.south west) -- (23.south west) -- cycle;
+    \draw [purple](26.north west) -- (26.north east) -- (26.south east) --
+    (27.south east) -- (27.south west) -- cycle;
+    \draw [purple](28.north west) -- (28.north east) -- (28.south east) --
+    (29.south east) -- (29.south west) -- cycle;
+    \end{tikzpicture}
+\end{table}
+
+\end{document}
